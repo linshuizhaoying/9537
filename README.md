@@ -2,7 +2,7 @@
 
 ## 使用方式
 
-yarn install
+npm install
 
 hexo server
 
