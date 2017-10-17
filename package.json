@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "hexo": {
-    "version": "3.3.7"
+    "version": "3.3.9"
   },
   "scripts": {
     "build": "hexo clean;hexo g",
@@ -33,6 +33,7 @@
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "hexo-tag-codepen": "^0.2.2"
   }
 }
