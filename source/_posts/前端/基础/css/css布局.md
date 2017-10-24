@@ -58,17 +58,26 @@ tags: [前端,代码风格标准]
 
 <p data-height="265" data-theme-id="0" data-slug-hash="QqovwG" data-default-tab="html,result" data-user="xinliqun" data-embed-version="2" data-pen-title="QqovwG" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/QqovwG/">QqovwG</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 ## 弹性布局(flexbox)
 弹性布局模型中，容器会根据布局的需要，调整其中包含的条目的尺寸和顺序来最好地填充所有可用的空间。
 容器的尺寸发生变化时，其中包含的条目也会被动态地调整。
 弹性盒布局内在的方向限制，可以由开发人员自由操作。
 
 弹性布局有很多属性，我比较常用的情况有2种：
-1.3列布局，可以解决用百分比3列布局多的那点像素。
+1.三列布局，可以解决用百分比三列布局多出的1%像素。
+
+<p data-height="265" data-theme-id="0" data-slug-hash="BwgybG" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="BwgybG" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/BwgybG/">BwgybG</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+写这个demo的时候，为了明显的看出均分的三部分，给每一部分都加了border，突然想到加了border之后，还是均分的情况，难道flex有类似box-sizing的功能，将边框放在已设定的宽度内绘制？
+
+<p data-height="265" data-theme-id="0" data-slug-hash="YroXLd" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="YroXLd" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/YroXLd/">YroXLd</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+从上面的例子里可以看出，flex属性并没有将border放在已设定的宽度内绘制，而是绘制固定值之后再按比例均分。
+
 2.有固定像素的元素，别的元素自适应。
-
-
-
+<p data-height="265" data-theme-id="0" data-slug-hash="vewowR" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="vewowR" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/vewowR/">vewowR</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
 
