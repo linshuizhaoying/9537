@@ -139,3 +139,92 @@ bar.call(obj2) // 2
 以上，是初级前端考察 `this` 值指向的一般解答。那么中级前端呢？
 
 ### 中级前端的this指向问题
+对于中级前端，一般就是直接上手写代码了，对于 this 值得指向，有一道比较经典的笔试题：“模拟实现ES5中原生bind函数”。
+
+这道面试考察到以下几个点：
+1. `bind`函数
+2. 闭包
+3. 考察代码的风格以及编写能力
+
+#### 初级的实现
+对于这道题目，最简单的解答版本如下：
+{% codeblock lang:js %}
+Function.prototype.bind = function (context) {
+  var me = this
+  var args = Array.prototype.slice(arguments)
+  return function () {
+    me.apply(context, args.slice(1))
+  }
+}
+{% endcodeblock %}
+
+这个版本呢，就是利用 `apply`来做模拟，将第一个参数（context）以外的其他参数，作为提供给原函数的预设参数。
+
+这个版本的写法基本满足了 polyfill 的需求，但是，
+1. 假如调用 bind 的不是一个函数呢？
+2. 假如这个浏览器本身就支持 bind 函数呢？
+
+针对第一个问题，我们可以加一个判断：
+{% codeblock lang:js %}
+Function.prototype.bind = function (context) {
+  if (typeof this !== 'function') {
+    throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable')
+  }
+}
+{% endcodeblock %}
+
+{% codeblock lang:js %}
+// 嗅探进化版本
+Function.prototype.bind = Function.prototype.bind || function (context) { .... }
+{% endcodeblock %}
+
+#### 更好的颗粒化
+上面的写法实现了最基本的 bind， 也做了嗅探处理，但是，**这种写法直接预设了参数丢失的情况**。
+
+假如在返回的函数中，想要传递参数呢？
+
+改进的方法如下：
+{% codeblock lang:js %}
+Function.prototype.bind  = Function.prototype.bind || function (context) {
+  if (typeof this !== 'function') {
+    throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable')
+  }
+  var me = this
+  var outterArgs = Array.prototype.slice(arguments, 1)
+  return function () {
+    var innerArgs = Array.prototype.slice(arguments, 1)
+    var finalArgs = outterArgs.concat(innerArgs)
+    return me.apply(context, finalArgs)
+  }
+}
+{% endcodeblock %}
+
+#### 构造函数的处理
+对于上面的代码，polyfill完成了70%了，还有一个情况，没有进行处理，那就是：bind返回的函数如果作为构造函数，搭配new关键字出现的话，我们的绑定this就需要“被忽略”。
+
+对于 new 关键字的情况，我们需要处理一下原型链了。
+
+{% codeblock lang:js %}
+Function.prototype.bind = Function.prototype.bind || function (context) {
+  if (typeof this !== 'function') {
+    throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable')
+  }
+  var me = this
+  var outterArgs = Array.prototype.slice(arguments, 1)
+  var F = function () {}
+  F.prototype = this.prototype
+  var bound = function () {
+    var innerArgs = Array.prototype.slice(arguments, 1)
+    var finalArgs = outterArgs.concat(innerArgs)
+    return me.apply(this instanceof F ? this : context || this, finalArgs)
+  }
+  bound.prototype = F.prototype
+  return bound
+}
+{% endcodeblock %}
+
+对此，bind 的 polyfill 写法已经基本完成了。
+
+上面的写法基本跟[MDN给出的 polyfill](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 一致了。
+
+好了，关于 bind 的polyfill 基本就到这里了。
