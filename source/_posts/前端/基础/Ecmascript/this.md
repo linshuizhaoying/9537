@@ -2,7 +2,7 @@
 title: this
 toc: true
 date: 2017-10-28  18:00:56
-tags: [前端, js原生, this]
+tags: [前端, js 原生, this]
 ---
 
 ### 知识点
