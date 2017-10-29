@@ -32,7 +32,7 @@ tags: [前端, js原生, this]
 
 如果遇到 `this` 的判断问题，可按照下面的顺序来判断：
 
-##### 函数是否在new中调用（ new 绑定）？如果是的话，this 绑定的是新创建的对象。
+##### 函数是否在 new 中调用（new 绑定）？如果是的话，this 绑定的是新创建的对象。
 {% codeblock lang:js %}
 function Foo (something) {
   this.a = something
@@ -134,11 +134,11 @@ var bar = foo.call(obj1)
 bar.call(obj2) // 2
 {% endcodeblock %}
 
-`foo()` 内部创建的箭头函数会捕获调用时 `foo()` 的 `this`。由于 `foo()` 的 `this` 绑定到 `obj1`，`bar`（引用箭头函数）的 `this` 也会绑定到 `obj1`，箭头函数的绑定无法被修改（`new`也不行！）
+`foo()` 内部创建的箭头函数会捕获调用时 `foo()` 的 `this`。由于 `foo()` 的 `this` 绑定到 `obj1`，`bar`（引用箭头函数）的 `this` 也会绑定到 `obj1`，箭头函数的绑定无法被修改（`new` 也不行！）
 
 以上，是初级前端考察 `this` 值指向的一般解答。那么中级前端呢？
 
-### 中级前端的this指向问题
+### 中级前端的 this 指向问题
 对于中级前端，一般就是直接上手写代码了，对于 this 值得指向，有一道比较经典的笔试题：“模拟实现ES5中原生 bind 函数”。
 
 这道面试考察到以下几个点：
