@@ -2,10 +2,10 @@
 title: CSS3实现卡片翻转
 toc: true
 date: 2017-10-28  18:47:45
-tags: [Css,2017-10]
+tags: [Css, 2017-10]
 ---
 
-## CSS3实现卡片翻转
+## CSS3 实现卡片翻转
 ##### 关键属性：
 transform-style: flat|preserve-3d;
 transition: 有四个过渡属性
