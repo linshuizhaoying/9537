@@ -10,7 +10,7 @@ tags: [前端, js原生, this]
 - call, bind, apply
 - bind 的 polyfill 写法
 
-### 初级前端的this指向问题
+### 初级前端的 this 指向问题
 面试过程中考察基础有一道比问题：“this 的指向如何确定？”
 
 如何解答这道题目？
@@ -42,7 +42,7 @@ let bar = new Foo(3)
 console.log(bar.a) // 3
 {% endcodeblock %}
 
-##### 函数是否通过call, apply, bind 绑定？如果是的话，this绑定的是指定的对象。
+##### 函数是否通过 call, apply, bind 绑定？如果是的话，this 绑定的是指定的对象。
 
 先看 `call`
 {% codeblock lang:js %}
