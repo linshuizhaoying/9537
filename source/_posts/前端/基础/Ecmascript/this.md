@@ -6,7 +6,7 @@ tags: [前端, js原生, this]
 ---
 
 ### 知识点
-- this的指向如何确定
+- this 的指向如何确定
 - call, bind, apply
 - bind 的 polyfill 写法
 
