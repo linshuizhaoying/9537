@@ -200,7 +200,7 @@ Function.prototype.bind  = Function.prototype.bind || function (context) {
 {% endcodeblock %}
 
 #### 构造函数的处理
-对于上面的代码，polyfill 完成了70%了，还有一个情况，没有进行处理，那就是：bind 返回的函数如果作为构造函数，搭配 new 关键字出现的话，我们的绑定 this 就需要“被忽略”。
+对于上面的代码，polyfill 完成了 70% 了，还有一个情况，没有进行处理，那就是：bind 返回的函数如果作为构造函数，搭配 new 关键字出现的话，我们的绑定 this 就需要“被忽略”。
 
 对于 new 关键字的情况，我们需要处理一下原型链了。
 
