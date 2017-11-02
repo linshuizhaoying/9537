@@ -1,0 +1,8 @@
+---
+title: css3图片对比控件
+toc: true
+date: 2017-10-13  11:23:22
+tags: [前端,代码风格标准]
+---
+关键属性：resize(由用户控制div元素的大小)
+resize: none|both|horizontal|vertical;
