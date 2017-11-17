@@ -73,7 +73,6 @@ Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型�
 <p data-height="265" data-theme-id="0" data-slug-hash="YroXLd" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="YroXLd" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/YroXLd/">YroXLd</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 从上面的例子里可以看出，flex属性并没有将border放在已设定的宽度内绘制，而是绘制固定值之后再按比例均分。
-
 2.有固定像素的元素，别的元素自适应。例如：左侧图片固定尺寸，右侧文字宽度占满剩余的宽度。
 <p data-height="265" data-theme-id="0" data-slug-hash="vewowR" data-default-tab="html,result" data-user="xinliqun" data-embed-version="2" data-pen-title="vewowR" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/vewowR/">vewowR</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -90,7 +89,29 @@ Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型�
 |align-items(水平对齐方式) | flex(以上三个的缩写，默认0 1 auto)|
 |align-content(多行垂直对齐方式) | align-self(单个项目有与其他项目不一样的对齐方式)|
 
+再具体讲属性之前，我们先来了解下flex容器默认存在的两根轴，借用下阮老师的图
+<img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt="">
 
+水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+
+##### 设置在容器上的属性1:flex-direction(元素排列方向)
+flex-direction：
+	row（默认值）：主轴为水平方向，起点在左端。
+	row-reverse：主轴为水平方向，起点在右端。
+	column：主轴为垂直方向，起点在上沿。
+	column-reverse：主轴为垂直方向，起点在下沿。
+<p data-height="265" data-theme-id="0" data-slug-hash="GOrRbR" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="flex-direction" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/GOrRbR/">flex-direction</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+从代码结构中可以看出，flex可以将块级子元素变成像行内块级元素一样排列。如果你有一个三天两头换布局左右排序的ui，强烈推荐你使用这个属性。可以通过改变属性row-reverse达到右浮动的效果，但是又不需要去管浮动导致的脱离标准流的后果。
+<p data-height="265" data-theme-id="0" data-slug-hash="rYYJmj" data-default-tab="css,result" data-user="xinliqun" data-embed-version="2" data-pen-title="rYYJmj" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/rYYJmj/">rYYJmj</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+##### 设置在容器上的属性2:flex-wrap(换行)
+	nowrap(默认值)：不换行
+	wrap：换行，第一行在上方
+	wrap-reverse：换行，第一行在下方
+<p data-height="265" data-theme-id="0" data-slug-hash="KyyQoz" data-default-tab="html,result" data-user="xinliqun" data-embed-version="2" data-pen-title="KyyQoz" class="codepen">See the Pen <a href="https://codepen.io/xinliqun/pen/KyyQoz/">KyyQoz</a> by xin (<a href="https://codepen.io/xinliqun">@xinliqun</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ## 流式布局(百分比)
 
