@@ -7,13 +7,13 @@ tags: [前端,代码风格标准]
 
   ### CSS选择器权值
 
-  1. 元素,伪元素选择权值 `0,0,0,1`  如: `div`
+  1. 元素,伪元素选择权值 `1`  如: `div`
 
-  2. 类,伪类,属性选择器权值 `0,0,1,0` 如: `.content  :hover  [attribute]`
+  2. 类,伪类,属性选择器权值 `10` 如: `.content  :hover  [attribute]`
 
-  3. ID权值 `0,1,0,0`  如: `#main`
+  3. ID权值 `100`  如: `#main`
   
-  4. 内联样式权值 `1,0,0,0`  如: `style="xxx"`
+  4. 内联样式权值 `1000`  如: `style="xxx"`
 
   5. 通配选择符,子选择器,相邻同胞选择器权值为`0`
 
@@ -30,11 +30,14 @@ tags: [前端,代码风格标准]
     例：
 
     ```
-    #content div#main-content h2 => 100(#content) + 1(div) + 1000(#main-content) + 1(h2) = 202
+    #content div#main-content h2的权值计算结果:
+    100 + 1 + 1000 + 1 = 202
 
-    #content #main-content>h2 => 100(#content) + 1000(#main-content) + 1(h2) = 201
+    #content #main-content>h2的权值计算结果:
+    100+ 100 + 1 = 201
 
-    body #content div[id="main-content"] h2 => 1(body) + 100(#content) + 1(div) + 10([id="main-content"]) + 1(h2) = 113
+    body #content div[id="main-content"] h2的权值计算结果:
+    1 + 100 + 1 + 10 + 1 = 113
     ```
 
   > [扩展阅读：256个class选择器可以干掉1个id选择器](http://www.zhangxinxu.com/wordpress/2012/08/256-class-selector-beat-id-selector/)
