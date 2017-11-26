@@ -2,7 +2,7 @@
 title: 下拉加载优化
 toc: true
 date: 2017-10-30  10:56:50
-tags: [前端, electron , JS 基础]
+tags: [前端, electron, JS 基础]
 ---
 
 ## 下拉加载优化
@@ -32,13 +32,13 @@ tags: [前端, electron , JS 基础]
 
 ### 实战
 
-先看` DOM 回收`的例子[infinite-list](https://github.com/roeierez/infinite-list)
+先看`DOM 回收`的例子[infinite-list](https://github.com/roeierez/infinite-list)
 
 ![imgn](http://haoqiao.qiniudn.com/infinite-list.gif)
 
-这个是利用` DOM 缓存`来实现的无限加载。
+这个是利用`DOM 缓存`来实现的无限加载。
 
-写法简单的例子还是`减少页面元素,保存页面元素数量一定。`
+写法简单的例子还是`减少页面元素，保存页面元素数量一定。`
 
 直接来看这个 demo
 
@@ -55,8 +55,8 @@ tags: [前端, electron , JS 基础]
 
 > [设计无限滚动下拉加载，实践高性能页面真谛](https://segmentfault.com/a/1190000008518315)
 
-> [ infinite-scroller ](https://developers.google.com/web/updates/2016/07/infinite-scroller)
+> [infinite-scroller](https://developers.google.com/web/updates/2016/07/infinite-scroller)
 
 
-> [ Vue.js 一个超长列表无限滚动加载的解决方案](https://juejin.im/entry/5819993fbf22ec0068aab054)
+> [Vue.js 一个超长列表无限滚动加载的解决方案](https://juejin.im/entry/5819993fbf22ec0068aab054)
 
