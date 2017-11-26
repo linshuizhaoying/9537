@@ -50,12 +50,12 @@ tags: [前端, CSRF, js 基础]
 
 # 验证了 origin 和 refer 是否能完全避免?
 
-> 根据 HTTP 协议，在 HTTP 请求头中包含一个 referer 的字段，这个字段记录了该 HTTP 请求的原地址。通常情况下，执行转账操作的 post 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作，这个时候转账请求的 referer 应该是 www.bank.com。而如果黑客要进行 CSRF 攻击，只能在自己的网站 www.hacker.com 上伪造请求。伪造请求的referer是 www.hacker.com。所以我们通过对比 POST 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法。
+> 根据 HTTP 协议，在 HTTP 请求头中包含一个 referer 的字段，这个字段记录了该 HTTP 请求的原地址。通常情况下，执行转账操作的 POST 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作，这个时候转账请求的 referer 应该是 www.bank.com。而如果黑客要进行 CSRF 攻击，只能在自己的网站 www.hacker.com 上伪造请求。伪造请求的 referer 是 www.hacker.com。所以我们通过对比 POST 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法。
 
 `黑客完全可以把用户浏览器的 Referer 值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行 CSRF 攻击。`
 
->为了防止 CSRF 的攻击，可以浏览器在发送POST请求的时候加上一个 Origin 字段，这个 Origin 字段主要是用来标识出最初请求是从哪里发起的。如果浏览器不能确定源在哪里，那么在发送的请求里面 Origin 字段的值就为空。
+>为了防止 CSRF 的攻击，可以浏览器在发送 POST 请求的时候加上一个 Origin 字段，这个 Origin 字段主要是用来标识出最初请求是从哪里发起的。如果浏览器不能确定源在哪里，那么在发送的请求里面 Origin 字段的值就为空。
 
-`如果攻击者如果直接通过假页面提交 Form，则不能在 header 里设置 X-From 属性；而如果攻击者也用 Ajax 提交，则 header 里的 Origin 因为不能伪造，也不能达到攻击的目的。从而达到了预防 csrf 的目的。`
+`如果攻击者如果直接通过假页面提交 Form，则不能在 header 里设置 X-From 属性；而如果攻击者也用 Ajax 提交，则 header 里的 Origin 因为不能伪造，也不能达到攻击的目的。从而达到了预防 CSRF 的目的。`
 
 
