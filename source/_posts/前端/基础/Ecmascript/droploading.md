@@ -20,19 +20,19 @@ tags: [前端, electron, JS 基础]
 普通的[加载例子](http://www.caijinfeng.com/temp/pull/examples/index.html)
 
 
-无限滚动的思路:
+无限滚动的思路：
 
 `隐藏不需要显示的 DOM 元素`
 
-`通过懒加载(设置一个合理阈值，在用户滚动到页面底部之前，先进行提前加载)`
+`通过懒加载（设置一个合理阈值，在用户滚动到页面底部之前，先进行提前加载）`
 
-`计算显示屏大小，移除过时的，添加新元素。`
+`计算显示屏大小，移除过时的，添加新元素`
 
-`DOM 回收(对于需要产生的大量 DOM 节点（比如我们下拉加载的信息内容）不是主动用 createElement 的方式创建，而是回收利用那些已经移出视窗，暂时不会被需要的 DOM 节点)`
+`DOM 回收（对于需要产生的大量 DOM 节点（比如我们下拉加载的信息内容）不是主动用 createElement 的方式创建，而是回收利用那些已经移出视窗，暂时不会被需要的 DOM 节点）`
 
 ### 实战
 
-先看 **DOM** 回收 的例子[infinite-list](https://github.com/roeierez/infinite-list)
+先看 **DOM 回收** 的例子[infinite-list](https://github.com/roeierez/infinite-list)
 
 ![imgn](http://haoqiao.qiniudn.com/infinite-list.gif)
 
