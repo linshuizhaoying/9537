@@ -36,21 +36,21 @@ tags: [前端, CSRF, js 基础]
 ## 服务器端进行 CSRF 防御
 
 
-1. Cookie Hashing (所有表单都包含同一个伪随机值)：
+1. Cookie Hashing （所有表单都包含同一个伪随机值）：
 
 > 可以在表单中嵌入一个随机的 token。当真正的用户提交表单的时，你就会收到表单的随机 token，这样你就可以通过之前嵌入的那个随机 token 来校验了。在 CSRF 攻击场景中，攻击者永远都不可能拿到这个值甚至在攻击者可以请求到页面的情况也无法拿到，因为同源策略（SOP）会阻止攻击者从包含 token 的响应中读取内容。这个方法在实际运用中很不错，但是它需要网站追踪每一个请求并且返回 Anti-CSRF tokens。还有一个类似的在表单中嵌入 token 的方法是给浏览器一个包含相同值的 cookie 来实现的。当网站收到真正的用户提交他们的表单时，cookie 中的值和表单中的值将会相匹配。攻击者通过没有 CSRF cookie 的浏览器发送伪造的请求将会失败。
 
 
-2. One-Time Tokens (不同的表单包含一个不同的伪随机值):
+2. One-Time Tokens（不同的表单包含一个不同的伪随机值）：
 
 > 如果用户在一个站点上同时打开了两个不同的表单，CSRF 保护措施不应该影响到他对任何表单的提交。考虑一下如果每次表单被装入时站点生成一个伪随机值来覆盖以前的伪随机值将会发生什么情况：用户只能成功地提交他最后打开的表单，因为所有其他的表单都含有非法的伪随机值。必须小心操作以确保 CSRF 保护措施不会影响选项卡式的浏览或者利用多个浏览器窗口浏览一个站点。
 
-> 令牌同步模式（ Synchronizer token pattern ，简称 STP ）是在用户请求的页面中的所有表单中嵌入一个 token, 在服务端验证这个 token 的技术。 token 可以是任意的内容，但是一定要保证无法被攻击者猜测到或者查询到。攻击者在请求中无法使用正确的 token, 因此可以判断出未授权的请求。
+> 令牌同步模式（Synchronizer token pattern，简称 STP）是在用户请求的页面中的所有表单中嵌入一个 token，在服务端验证这个 token 的技术。token 可以是任意的内容，但是一定要保证无法被攻击者猜测到或者查询到。攻击者在请求中无法使用正确的 token，因此可以判断出未授权的请求。
 
 
 # 验证了 origin 和 refer 是否能完全避免?
 
-> 根据 HTTP 协议，在 HTTP 请求头中包含一个 referer 的字段，这个字段记录了该 HTTP 请求的原地址。通常情况下，执行转账操作的 post 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作，这个时候转账请求的 referer 应该是 www.bank.com.而如果黑客要进行 CSRF 攻击，只能在自己的网站 www.hacker.com 上伪造请求。伪造请求的referer是 www.hacker.com。所以我们通过对比 POST 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法。
+> 根据 HTTP 协议，在 HTTP 请求头中包含一个 referer 的字段，这个字段记录了该 HTTP 请求的原地址。通常情况下，执行转账操作的 post 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作，这个时候转账请求的 referer 应该是 www.bank.com。而如果黑客要进行 CSRF 攻击，只能在自己的网站 www.hacker.com 上伪造请求。伪造请求的referer是 www.hacker.com。所以我们通过对比 POST 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法。
 
 `黑客完全可以把用户浏览器的 Referer 值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行 CSRF 攻击。`
 
