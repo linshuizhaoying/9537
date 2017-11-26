@@ -17,7 +17,7 @@ transition: 有四个过渡属性
 backface-visibility: visible|hidden
 transform: none|transform-functions
 ##### 实现原理简述
-先定一个box，里面放两个div（card），都是绝对定位，然后让其中一个通过 transform 翻转180度，这样两个 card 就正反面贴在一起了，最后通过给 box 的 hover 效果上，也是用 transform 翻转 180 度，这样就是把背面的翻转到前面来了，前面的翻转到后面，实现一个 card 的翻转。
+先定一个 box，里面放两个div（card），都是绝对定位，然后让其中一个通过 transform 翻转180度，这样两个 card 就正反面贴在一起了，最后通过给 box 的 hover 效果上，也是用 transform 翻转 180 度，这样就是把背面的翻转到前面来了，前面的翻转到后面，实现一个 card 的翻转。
 
 ##### 示例代码
 <script async src="//en.jsrun.net/x3iKp/embed/all/light/"></script>

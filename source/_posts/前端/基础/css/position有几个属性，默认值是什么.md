@@ -22,7 +22,7 @@ position: static|relative|absolute|fixed|inherit
 * inherit
 规定应该从父元素继承 position 属性的值
 
-##### css3动画keyframe可以使用哪些属性
+##### css3 动画 keyframe 可以使用哪些属性
 除了 static, 其他的都可以使用
 
 ##### 示例代码
