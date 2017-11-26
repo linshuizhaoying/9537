@@ -2,20 +2,20 @@
 title: CSRF
 toc: true
 date: 2017-11-25  10:35:12
-tags: [前端,CSRF,JS 基础]
+tags: [前端,CSRF ,JS 基础]
 ---
 
 
 # CSRF 简介
 
-` Cross Site Request Forgery, 跨站域请求伪造`
+`Cross Site Request Forgery ,跨站域请求伪造`
 
 ```
 
-假设 abc 用户登录银行的网站进行操作, 同时也访问了攻击者预先设置好的网站.
- abc 点击了攻击者网站的某一个链接,这个链接是 http://www.bank.com/xxxx 指向银行, 银行服务器会根据这个链接携带的参数会进行转账操作.
-银行服务器在执行转账操作之前会进行 SESSION 验证是否登录, 但是由于 abc 已经登录了银行网站,攻击者的链接也是 www.bank.com .所以攻击的链接就会携带 session id 到银行服务器.
-由于 session id 是正确的,所以银行会判断操作是由本人发起的,执行转账操作.
+假设 abc 用户登录银行的网站进行操作, 同时也访问了攻击者预先设置好的网站。
+ abc 点击了攻击者网站的某一个链接，这个链接是 http://www.bank.com/xxxx 指向银行, 银行服务器会根据这个链接携带的参数会进行转账操作。
+银行服务器在执行转账操作之前会进行 SESSION 验证是否登录, 但是由于 abc 已经登录了银行网站，攻击者的链接也是 www.bank.com。所以攻击的链接就会携带 session id 到银行服务器。
+由于 session id 是正确的，所以银行会判断操作是由本人发起的，执行转账操作。
 
 ```
 
@@ -26,9 +26,9 @@ tags: [前端,CSRF,JS 基础]
 
 到这里，你也许会说：如果我不满足以上条件的中的任何一个，就不会受到攻击。但是你不能保证以下条件不会发生：
 
-1. 你不能保证你登陆了一个网站后，不再打开一个 tab 页面并访问另外的网站。
+1. 你不能保证你登陆了一个网站后，不再打开一个 tab 页面并访问另外的网站
 2. 你不能保证你关闭浏览器后，你本地的 cookie 马上过期，你上次的会话已经结束
-3. 存在其他漏洞的可信任的经常被人访问的网站。
+3. 存在其他漏洞的可信任的经常被人访问的网站
 
 # 防止 csrf 的几种方法
 
@@ -50,12 +50,12 @@ tags: [前端,CSRF,JS 基础]
 
 # 验证了 origin 和 refer 是否能完全避免?
 
-> 根据 HTTP 协议,在 http 请求头中包含一个 referer 的字段,这个字段记录了该 http 请求的原地址.通常情况下,执行转账操作的 post 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作,这个时候转账请求的 referer 应该是 www.bank.com.而如果黑客要进行 csrf 攻击,只能在自己的网站 www.hacker.com 上伪造请求.伪造请求的referer是 www.hacker.com.所以我们通过对比 post 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法.
+> 根据 HTTP 协议，在 HTTP 请求头中包含一个 referer 的字段，这个字段记录了该 HTTP 请求的原地址。通常情况下，执行转账操作的 post 请求 www.bank.com/transfer.php 应该是点击 www.bank.com 网页的按钮来触发的操作，这个时候转账请求的 referer 应该是 www.bank.com.而如果黑客要进行 csrf 攻击，只能在自己的网站 www.hacker.com 上伪造请求。伪造请求的referer是 www.hacker.com。所以我们通过对比 POST 请求的 referer 是不是 www.bank.com 就可以判断请求是否合法。
 
 `黑客完全可以把用户浏览器的 Referer 值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行 CSRF 攻击。`
 
 >为了防止 CSRF 的攻击，可以浏览器在发送POST请求的时候加上一个 Origin 字段，这个 Origin 字段主要是用来标识出最初请求是从哪里发起的。如果浏览器不能确定源在哪里，那么在发送的请求里面 Origin 字段的值就为空。
 
-`如果攻击者如果直接通过假页面提交 Form ，则不能在 header 里设置 X-From 属性；而如果攻击者也用 Ajax 提交，则 header 里的 Origin 因为不能伪造，也不能达到攻击的目的。从而达到了预防 CSRF 的目的。`
+`如果攻击者如果直接通过假页面提交 Form，则不能在 header 里设置 X-From 属性；而如果攻击者也用 Ajax 提交，则 header 里的 Origin 因为不能伪造，也不能达到攻击的目的。从而达到了预防 CSRF 的目的。`
 
 
