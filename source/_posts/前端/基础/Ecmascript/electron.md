@@ -2,7 +2,7 @@
 title: electron
 toc: true
 date: 2017-10-30  10:56:50
-tags: [前端, electron, JS基础]
+tags: [前端, electron, JS 基础]
 ---
 
 ## electron
@@ -49,83 +49,4 @@ electron
 
 #### 相互通讯
 
->由于主进程和渲染进程各自负责不同的任务，而对于需要协同完成的任务，它们需要相互通讯。IPC就为此而生，它提供了进程间的通讯。但它只能在主进程与渲染进程之间传递信息（即渲染进程之间不能进行直接通讯）。
-
-![imgn](http://haoqiao.qiniudn.com/1460000007503502.png)
-
-`主进程和渲染进程各自拥有一个 IPC 模块。`
-
-
-![imgn](http://haoqiao.qiniudn.com/1460000007503503.png)
-
-### 开发环境配置
-
-调试工具[ DevTools ](https://github.com/electron/devtron)
-
-官网提供[ Quick Start ](https://github.com/electron/electron-quick-start)
-
-但是我们项目都是根据自己采用的框架和库来开发。
-
-因此不建议使用，推荐社区已经封装好的[ boilerplates ](https://electron.atom.io/community/#boilerplates)
-
-或者直接根据你的需求去 GitHub 上搜索对应的开发环境。
-
-#### 打包
-
-应用构建完成后，可以通过 命令行工具 electron-packager 对其打包为适用于 Mac 、Windows 和 Linux 的应用。当然，你可以在 package.json 添加该命令行。查看下面相关资源，学习如何将应用发布到 Mac 和 Windows 的 App Store。
-
-
-> [Mac App Store Electron Guide](http://electron.atom.io/docs/tutorial/mac-app-store-submission-guide/)
-
-
-> [Windows App Store Electron Guide](http://electron.atom.io/docs/tutorial/windows-store-guide/)
-
-
-### 从零构建一个多平台应用
-
-直接 clone React 的[开发环境](electron-react-boilerplate)
-
-```
-
-First, clone the repo via git:
-
-git clone --depth=1 https://github.com/chentsulin/electron-react-boilerplate.git your-project-name
-And then install dependencies with yarn.
-
-$ cd your-project-name
-$ yarn
-
-```
-
-这个过程很慢，而且有时候你需要全局翻墙0-0
-
-然后会发现卡在 ` electron node install.js `上
-
-解决方案如下:
-
-```
-
-编辑 ~/.npmrc 加入下面内容
-
-electron_mirror=https://npm.taobao.org/mirrors/electron/
-
-```
-
-安装完成之后执行` yarn run dev `
-
-![imgn](http://haoqiao.qiniudn.com/electron1.gif)
-
-### 小结
-
-electron 虽然也能开发一些应用，但是环境配置实在蛋疼，而且开发环境不稳定。因此使用还需谨慎~作为玩具它也很让人糟心~
-
-### 资料
-
-> [ electron 官方中文文档](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)
-
-> [通过 electron 开发一个简单地桌面应用](https://juejin.im/entry/56aae5e4a633bd0257ae4ab8)
-
-> [用 electron 打造跨平台前端 App](http://web.jobbole.com/86509/)
-
-> [ electron 深度实践总结](https://changkun.us/archives/2017/03/217/)
-
+>由于主进程和渲染进程各自负责不同的任务，而对于需要协同完成的任务，它们需要相互通讯。IPC就为此而生，它提供了进程间的通讯。但它只能在主进程与渲染进程之间传递信息（即渲染进程之间不能进行
