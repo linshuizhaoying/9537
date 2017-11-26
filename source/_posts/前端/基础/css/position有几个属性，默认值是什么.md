@@ -1,11 +1,11 @@
 ---
-title: position有几个属性，默认值是什么
+title: position 有几个属性，默认值是什么
 toc: true
 date: 2017-10-29  17:40:21
 tags: [Css,2017-10]
 ---
 
-## position有几个属性，默认值是什么
+## position 有几个属性，默认值是什么
 ##### 属性：
 {% codeblock lang:js %}
 position: static|relative|absolute|fixed|inherit
@@ -23,7 +23,7 @@ position: static|relative|absolute|fixed|inherit
 规定应该从父元素继承 position 属性的值
 
 ##### css3动画keyframe可以使用哪些属性
-除了static, 其他的都可以使用
+除了 static, 其他的都可以使用
 
 ##### 示例代码
 <script async src="//en.jsrun.net/j3iKp/embed/all/light/"></script>
