@@ -19,7 +19,7 @@ electron
 
 
 
-### electron入门
+### electron 入门
 
 全局安装 electron
 
