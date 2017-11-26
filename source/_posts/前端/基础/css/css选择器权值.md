@@ -30,13 +30,13 @@ tags: [前端, 代码风格标准]
     例：
 
     ```
-    #content div#main-content h2 的权值计算结果:
+    #content div#main-content h2 的权值计算结果：
     100 + 1 + 1000 + 1 = 202
 
-    #content #main-content>h2 的权值计算结果:
+    #content #main-content>h2 的权值计算结果：
     100 + 100 + 1 = 201
 
-    body #content div[id="main-content"] h2 的权值计算结果:
+    body #content div[id="main-content"] h2 的权值计算结果：
     1 + 100 + 1 + 10 + 1 = 113
     ```
 
