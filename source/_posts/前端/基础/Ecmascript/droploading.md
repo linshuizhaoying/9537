@@ -28,17 +28,17 @@ tags: [前端, electron, JS 基础]
 
 `计算显示屏大小，移除过时的，添加新元素。`
 
-` DOM 回收(对于需要产生的大量 DOM 节点（比如我们下拉加载的信息内容）不是主动用 createElement 的方式创建，而是回收利用那些已经移出视窗，暂时不会被需要的 DOM 节点)`
+`DOM 回收(对于需要产生的大量 DOM 节点（比如我们下拉加载的信息内容）不是主动用 createElement 的方式创建，而是回收利用那些已经移出视窗，暂时不会被需要的 DOM 节点)`
 
 ### 实战
 
-先看`DOM 回收`的例子[infinite-list](https://github.com/roeierez/infinite-list)
+先看 **DOM** 回收 的例子[infinite-list](https://github.com/roeierez/infinite-list)
 
 ![imgn](http://haoqiao.qiniudn.com/infinite-list.gif)
 
-这个是利用`DOM 缓存`来实现的无限加载。
+这个是利用 **DOM 缓存** 来实现的无限加载。
 
-写法简单的例子还是`减少页面元素，保存页面元素数量一定。`
+写法简单的例子还是 **减少页面元素，保存页面元素数量一定。**
 
 直接来看这个 demo
 
@@ -56,7 +56,6 @@ tags: [前端, electron, JS 基础]
 > [设计无限滚动下拉加载，实践高性能页面真谛](https://segmentfault.com/a/1190000008518315)
 
 > [infinite-scroller](https://developers.google.com/web/updates/2016/07/infinite-scroller)
-
 
 > [Vue.js 一个超长列表无限滚动加载的解决方案](https://juejin.im/entry/5819993fbf22ec0068aab054)
 
